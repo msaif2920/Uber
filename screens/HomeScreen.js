@@ -1,14 +1,20 @@
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { Text, View, SafeAreaView, Image } from "react-native";
+import NavOptions from "../components/NavOptions";
+import { styles } from "./HomeScreenStyles";
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView>
-      <Text>I am the home Screen</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.contentContainer}>
+        <Image
+          style={styles.uberIcon}
+          source={{ uri: "https://links.papareact.com/gzs" }}
+        />
+        <NavOptions />
+      </View>
     </SafeAreaView>
   );
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({});
