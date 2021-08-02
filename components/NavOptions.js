@@ -9,6 +9,8 @@ import {
   Image,
 } from "react-native";
 import { Icon } from "react-native-elements";
+import { useSelector } from "react-redux";
+import { selectOrigin } from "../slices/navSlice";
 
 const data = [
   {
@@ -27,6 +29,7 @@ const data = [
 
 const NavOptions = () => {
   const navigation = useNavigation();
+  const origin = useSelector(selectOrigin);
   return (
     <View>
       <FlatList
@@ -37,8 +40,9 @@ const NavOptions = () => {
           <TouchableOpacity
             onPress={() => navigation.navigate(item.screen)}
             style={styles.container}
+            disabled={!origin}
           >
-            <View>
+            <View style={{ opacity: !origin ? 0.3 : 1 }}>
               <Image
                 style={{ width: 120, height: 120, resizeMode: "contain" }}
                 source={{ uri: item.image }}
